@@ -1,10 +1,5 @@
 (function ( hero_theta, hero_x, hero_y, hero_dx, hero_dy, ball_x, ball_y, ball_dx, ball_dy, evil_x, evil_y ) {
 
-    // var land_width = $('#land').attr('width');
-    // var land_height = $('#land').attr('height');
-
-    // discretization can always be made smaller
-
     var land_width = parseFloat(document.getElementById("land").style.width);
     var land_height = parseFloat(document.getElementById("land").style.height);
     var hero_speed = 2;
@@ -18,6 +13,7 @@
 
     var tick = function ()
     {
+
         hero_dx = Math.cos(hero_theta);
         hero_dy = Math.sin(hero_theta);
         hero_x += hero_speed * hero_dx;
@@ -61,12 +57,10 @@
         }
 
         if( Math.abs(hero_x - evil_x) + Math.abs(hero_y - evil_y) < 50 ){
-            // hero.style.border = '1px solid #f00';
             hero.style.background = '#f00';
         }
 
         if( Math.abs(ball_x - evil_x) + Math.abs(ball_y - evil_y) < 50 ){
-            // evil.style.border = '1px solid #f00';
             evil.style.background = '#f00';
         }
     }
@@ -116,16 +110,6 @@
     }
 
     document.addEventListener('keypress', controller, false);
-    // document.addEventListener('keydown', controller, false);
-    // document.addEventListener('keyup', controller, false);
-
-    // document.addEventListener('devicemotion', detector, false);
-    // document.addEventListener('deviceorientation', detector, false);
-    // document.addEventListener('touchmove', detector, false);
-    // document.addEventListener('touchstart', detector, false);
-    // document.addEventListener('touchcancel', detector, false);
-    // document.addEventListener('touchend', detector, false);
-
     window.ondevicemotion = shoot;
     window.ondeviceorientation = steer;
 
@@ -133,10 +117,3 @@
 
 } (0,0,0,0,0,0,0,0,0,300,300));
 
-
-        // TODO:
-        // - implement death
-        // - implement resurrection via page refresh
-        // - implement multiplayer
-        // - fix Error in parsing value for '-moz-transform'.  Declaration dropped. bug
-        // - fix hotseat controls
