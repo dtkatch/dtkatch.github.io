@@ -91,16 +91,21 @@
         if ( key=='l' ) evil_x += 10;
     }
 
-    var motion_controller = function(e)
+    var detector = function(e)
     {
-        alert(e.alpha);
+        hero.style.background = '#00f';
     }
 
     document.addEventListener('keypress', controller, false);
     // document.addEventListener('keydown', controller, false);
     // document.addEventListener('keyup', controller, false);
 
-    document.addEventListener('devicemotion', motion_controller, false);
+    document.addEventListener('devicemotion', detector, false);
+    document.addEventListener('deviceorientation', detector, false);
+    document.addEventListener('touchmove', detector, false);
+    document.addEventListener('touchstart', detector, false);
+    document.addEventListener('touchcancel', detector, false);
+    document.addEventListener('touchend', detector, false);
 
     var timer = setInterval(tick, 1000/60); 
 
