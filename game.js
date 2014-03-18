@@ -102,10 +102,10 @@
 
     document.addEventListener('devicemotion', detector, false);
     document.addEventListener('deviceorientation', detector, false);
-    document.addEventListener('touchmove', detector, false);
-    document.addEventListener('touchstart', detector, false);
-    document.addEventListener('touchcancel', detector, false);
-    document.addEventListener('touchend', detector, false);
+    // document.addEventListener('touchmove', detector, false);
+    // document.addEventListener('touchstart', detector, false);
+    // document.addEventListener('touchcancel', detector, false);
+    // document.addEventListener('touchend', detector, false);
 
     var timer = setInterval(tick, 1000/60); 
 
