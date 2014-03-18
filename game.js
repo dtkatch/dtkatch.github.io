@@ -93,7 +93,7 @@
 
     var detector = function(e)
     {
-        hero.style.background = '#00f';
+        hero.style.background = '#0ff';
     }
 
     document.addEventListener('keypress', controller, false);
