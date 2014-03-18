@@ -98,8 +98,8 @@
 
     var steer = function(e)
     {
-        if ( e.alpha > 180 ) hero_theta -= 0.2;
-        if ( e.alpha < 180 ) hero_theta += 0.2;
+        if ( 30 < e.alpha && e.alpha < 180 ) hero_theta -= 0.2;
+        if ( 180 < e.alpha && e.alpha < 330 ) hero_theta += 0.2;
     }
 
     document.addEventListener('keypress', controller, false);
@@ -113,7 +113,7 @@
     // document.addEventListener('touchcancel', detector, false);
     // document.addEventListener('touchend', detector, false);
 
-    window.ondevicemotion = detector;
+    // window.ondevicemotion = detector;
     window.ondeviceorientation = steer;
 
     var timer = setInterval(tick, 1000/60); 
