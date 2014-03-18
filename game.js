@@ -98,8 +98,8 @@
 
     var steer = function(e)
     {
-        if ( 1 < e.alpha && e.alpha < 180 ) hero_theta -= 0.2;
-        if ( 180 < e.alpha && e.alpha < 359 ) hero_theta += 0.2;
+        if ( 3 < e.alpha && e.alpha < 90 ) hero_theta -= 0.2;
+        if ( 270 < e.alpha && e.alpha < 357 ) hero_theta += 0.2;
     }
 
     document.addEventListener('keypress', controller, false);
