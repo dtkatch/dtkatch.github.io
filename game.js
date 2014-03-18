@@ -91,9 +91,16 @@
         if ( key=='l' ) evil_x += 10;
     }
 
+    var motion_controller = function(e)
+    {
+        alert(e.alpha);
+    }
+
     document.addEventListener('keypress', controller, false);
     // document.addEventListener('keydown', controller, false);
     // document.addEventListener('keyup', controller, false);
+
+    document.addEventListener('devicemotion', motion_controller, false);
 
     var timer = setInterval(tick, 1000/60); 
 
