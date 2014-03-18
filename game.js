@@ -100,12 +100,15 @@
     // document.addEventListener('keydown', controller, false);
     // document.addEventListener('keyup', controller, false);
 
-    document.addEventListener('devicemotion', detector, false);
-    document.addEventListener('deviceorientation', detector, false);
+    // document.addEventListener('devicemotion', detector, false);
+    // document.addEventListener('deviceorientation', detector, false);
     // document.addEventListener('touchmove', detector, false);
     // document.addEventListener('touchstart', detector, false);
     // document.addEventListener('touchcancel', detector, false);
     // document.addEventListener('touchend', detector, false);
+
+    window.ondevicemotion = detector;
+    window.ondeviceorientation = detector;
 
     var timer = setInterval(tick, 1000/60); 
 
