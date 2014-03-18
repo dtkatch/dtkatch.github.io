@@ -98,8 +98,21 @@
 
     var steer = function(e)
     {
-        if ( 3 < e.alpha && e.alpha < 90 ) hero_theta -= 0.1;
-        if ( 270 < e.alpha && e.alpha < 357 ) hero_theta += 0.1;
+        if ( 5 < e.alpha && e.alpha < 90 ) hero_theta -= 0.2;
+        if ( 270 < e.alpha && e.alpha < 355 ) hero_theta += 0.2;
+    }
+
+    var shoot = function(e)
+    {
+        if( e.acceleration.z < -10 ){
+            ball_x = hero_x;
+            ball_y = hero_y;
+            ball_dx = ball_speed * hero_speed * hero_dx;
+            ball_dy = ball_speed * hero_speed * hero_dy;
+            ball.style.border = '1px solid #000';
+            ball.style.background = '#0f0';
+            ball.style.border = '1px solid #000';
+        }
     }
 
     document.addEventListener('keypress', controller, false);
@@ -113,7 +126,7 @@
     // document.addEventListener('touchcancel', detector, false);
     // document.addEventListener('touchend', detector, false);
 
-    // window.ondevicemotion = detector;
+    window.ondevicemotion = shoot;
     window.ondeviceorientation = steer;
 
     var timer = setInterval(tick, 1000/60); 
