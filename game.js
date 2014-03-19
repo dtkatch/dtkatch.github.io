@@ -1,7 +1,18 @@
-(function ( hero_theta, hero_x, hero_y, hero_dx, hero_dy, ball_x, ball_y, ball_dx, ball_dy, evil_x, evil_y ) {
+(function ( land, hero_theta, hero_x, hero_y, hero_dx, hero_dy, ball_x, ball_y, ball_dx, ball_dy, evil_x, evil_y ) {
+
+    var side_length = Math.min(screen.availWidth,screen.availHeight) - 100;
+
+    land.style.width = side_length + 'px';
+    land.style.height = side_length + 'px';
+
+    // alert(land.style.width);
+
+    // document.getElementById("land").style.width = side_length;
+    // document.getElementById("land").style.height = side_length;
 
     var land_width = parseFloat(document.getElementById("land").style.width);
     var land_height = parseFloat(document.getElementById("land").style.height);
+
     var hero_speed = 2;
     var ball_speed = 3;
     var hero_move;
@@ -13,6 +24,8 @@
 
     var tick = function ()
     {
+        // alert(screen.availWidth);
+        // alert(screen.availHeight);
 
         hero_dx = Math.cos(hero_theta);
         hero_dy = Math.sin(hero_theta);
@@ -22,7 +35,7 @@
         hero_y += land_height;
         hero_x %= land_width;
         hero_y %= land_height;
-        hero_move = 'matrix(' + hero_dx + ',' + hero_dy + ',' + (-hero_dy) + ',' + hero_dx + ',' + hero_x + ',' + hero_y + ')';
+        hero_move = 'matrix(' + hero_dx + ',' + hero_dy + ',' + -hero_dy + ',' + hero_dx + ',' + hero_x + ',' + hero_y + ')';
         hero.style.MozTransform = hero_move;
         hero.style.WebkitTransform = hero_move;
         hero.style.msTransform = hero_move;
@@ -109,11 +122,12 @@
         }
     }
 
+
     document.addEventListener('keypress', controller, false);
     window.ondevicemotion = shoot;
     window.ondeviceorientation = steer;
 
     var timer = setInterval(tick, 1000/60); 
 
-} (0,0,0,0,0,0,0,0,0,300,300));
+} (land,0,0,0,0,0,0,0,0,0,300,300));
 
