@@ -1,11 +1,20 @@
-(function ( land, hero_theta, hero_x, hero_y, hero_dx, hero_dy, ball_x, ball_y, ball_dx, ball_dy, evil_x, evil_y ) {
+(function ( hero_theta, hero_x, hero_y, hero_dx, hero_dy, ball_x, ball_y, ball_dx, ball_dy, evil_x, evil_y ) {
 
-    var side_length = Math.min(screen.availWidth,screen.availHeight) - 100;
+    // var side_length = Math.min(window.availWidth,window.availHeight) - 100;
 
-    land.style.width = side_length + 'px';
-    land.style.height = side_length + 'px';
+    // alert(side_length);
+
+    // land.style.width = side_length + 'px';
+    // land.style.height = side_length + 'px';
 
     // alert(land.style.width);
+
+    // "<div id="hero" style="border: 1px solid rgb(0, 0, 0); 
+    // background: none repeat scroll 0% 0% rgb(255, 255, 0); 
+    // transform: matrix(0.980067, -0.198669, 0.198669, 0.980067, 351.59, 97.6276);"></div>"
+
+    // Error in parsing value for '-moz-transform'.  Declaration dropped. dtkatch.github.io
+    // 21:58:32.666 Use of getUserData() or setUserData() is deprecated.  Use WeakMap or element.dataset instead.
 
     // document.getElementById("land").style.width = side_length;
     // document.getElementById("land").style.height = side_length;
@@ -24,8 +33,8 @@
 
     var tick = function ()
     {
-        // alert(screen.availWidth);
-        // alert(screen.availHeight);
+        // alert(document.body.clientHeight);
+        // alert(document.body.clientWidth);
 
         hero_dx = Math.cos(hero_theta);
         hero_dy = Math.sin(hero_theta);
@@ -129,5 +138,5 @@
 
     var timer = setInterval(tick, 1000/60); 
 
-} (land,0,0,0,0,0,0,0,0,0,300,300));
+} (0,0,0,0,0,0,0,0,0,300,300));
 
